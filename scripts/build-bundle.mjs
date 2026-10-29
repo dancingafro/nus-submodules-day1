@@ -15,8 +15,13 @@ if (unexpectedArgs.length > 0) {
 }
 
 function run(command, args, cwd) {
-  const useShell = process.platform === 'win32' && /\.(cmd|bat)$/i.test(command);
-  const result = spawnSync(command, args, { cwd, stdio: 'inherit', shell: useShell });
+  const isWindowsBatch = process.platform === 'win32' && /\.(cmd|bat)$/i.test(command);
+  const result = isWindowsBatch
+    ? spawnSync(process.env.ComSpec || 'cmd.exe', ['/d', '/s', '/c', [command, ...args].join(' ')], {
+        cwd,
+        stdio: 'inherit',
+      })
+    : spawnSync(command, args, { cwd, stdio: 'inherit' });
   if (result.error) throw result.error;
   if (result.status !== 0) {
     throw new Error(`${command} ${args.join(' ')} failed with exit code ${result.status}.`);
