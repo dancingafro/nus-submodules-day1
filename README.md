@@ -27,11 +27,11 @@ Each layer lives on its own branch and is mounted here as a submodule tracking t
 Use recursive cloning to initialize all three submodules:
 
 ```sh
-git clone --recurse-submodules https://github.com/dancingafro/nus-submodules-day1.git snip-demo
+git clone --branch main --recurse-submodules https://github.com/dancingafro/nus-submodules-day1.git snip-demo
 cd snip-demo
 ```
 
-A plain `git clone` checks out the aggregator but leaves the submodule folders empty. Initialize them afterward with `git submodule update --init --recursive`.
+Specify `main` to select the aggregator regardless of the repository's current default branch. A plain `git clone` also leaves the submodule folders empty; initialize them afterward with `git submodule update --init --recursive`.
 
 ## Run
 
