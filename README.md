@@ -84,3 +84,7 @@ git push origin main
 ```
 
 Use the corresponding submodule path and branch for `backend` or `cli`. The aggregator tracks each submodule's configured branch from `.gitmodules`.
+
+## Generated Bundle
+
+The `bundle/` submodule tracks the generated deployment branch. Do not edit its output by hand. From the repository root, run `node scripts/build-bundle.mjs` to update source submodules, build the frontend, assemble the bundle, and commit changed bundle and pointer snapshots locally. Add `--push` to push the `bundle` branch and `main` after generation.
