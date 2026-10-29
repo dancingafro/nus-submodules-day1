@@ -1,17 +1,17 @@
 <div class="shell">
-  <header class="topbar">
+  <header class="topbar page-header">
     <a class="wordmark" href="/" aria-label="Snip home">snip<span>.</span></a>
     <div class="api-status"><span aria-hidden="true"></span> API · localhost:3000</div>
   </header>
 
   <main>
-    <section class="intro" aria-labelledby="page-title">
+    <section class="intro hero" aria-labelledby="page-title">
       <p class="eyebrow"><span></span> LINK SHORTENER</p>
       <h1 id="page-title">Make it <em>short.</em></h1>
       <p class="lede">A clean, quick link for wherever you're sharing.</p>
     </section>
 
-    <section class="composer" aria-label="Create a short link">
+    <section class="composer shorten-panel" aria-label="Create a short link">
       <form (submit)="createLink($event)" novalidate>
         <label for="destination">Paste a destination URL</label>
         <div class="input-row">
@@ -34,13 +34,13 @@
         <div class="form-meta">
           <span id="url-hint">HTTP and HTTPS links</span>
           @if (formError()) {
-            <span class="error" role="alert">{{ formError() }}</span>
+            <span class="error notice-error" role="alert">{{ formError() }}</span>
           }
         </div>
       </form>
 
       @if (createdLink(); as link) {
-        <div class="success" role="status">
+        <div class="success notice notice-success" role="status">
           <span>SHORT LINK READY</span>
           <a [href]="link.shortUrl" target="_blank" rel="noopener noreferrer">{{ link.shortUrl }}</a>
         </div>
@@ -57,10 +57,10 @@
       </div>
 
       @if (listError()) {
-        <p class="list-error" role="alert">{{ listError() }}</p>
+        <p class="list-error notice-error" role="alert">{{ listError() }}</p>
       }
 
-      <div class="table-wrap">
+      <div class="table-wrap links-card">
         <table>
           <thead>
             <tr>
