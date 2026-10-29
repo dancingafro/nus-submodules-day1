@@ -1,0 +1,29 @@
+:root {
+	color-scheme: light;
+	--paper: #f3f5ef;
+	--forest: #173d36;
+	--forest-soft: #477363;
+	--lime: #c9ef70;
+	--coral: #e86f59;
+	--mono: 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+	font-family: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	min-width: 320px;
+	min-height: 100vh;
+	margin: 0;
+}
+
+button,
+input {
+	font-family: inherit;
+}
